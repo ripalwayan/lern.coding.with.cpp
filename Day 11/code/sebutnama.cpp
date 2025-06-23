@@ -10,7 +10,7 @@ string nama;
 int kelamin;
 
 string panggilan[4][4] = {"Pak", "Mas", "Bang", "Kang", "Buk", "Mbak", "Neng", "Teteh"};
-string gelar[5] = {"H", "Hj", "S.Pd", "S.Fil", " "};
+string gelar[5] = {"H", "Hj", "S.Pd", "S.Fil"};
 
 void systemClear() {
   #ifdef _WIN32
