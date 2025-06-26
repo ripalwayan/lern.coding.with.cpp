@@ -28,6 +28,7 @@ int main() {
     cout << "[*] Ketemu nih " << cariAngka << endl;
   } else {
     cout << "[!] Tidak ada" << endl;
+    
   }
   return 0;
 }
