@@ -1,0 +1,8 @@
+
+soal tampilkan nomor beserta nama yang berada 
+di bawah ini!
+
+[1] ripyan 
+[2] ripalwayan 
+[3] wayan 
+[4] ripal
