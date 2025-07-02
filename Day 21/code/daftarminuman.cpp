@@ -5,6 +5,12 @@
 #include <limits>
 using namespace std;
 
+/*
+  ada bug di hapus data kalau mau perbaiki silahkan, hari 21 ini program ngak gue lanjutin sampai gue bener2 pahama tentang apa yang gue tulis :)
+*/
+
+
+
 struct minuman{
   char nama[50];
   char rasa[50];
@@ -136,7 +142,7 @@ void akhirProgram() {
 void updateDaftar(fstream &database) {
   int opsi;
   minuman updateMinuman;
-  cout << "[?] Pilih nomor : "; cin >> opsi;
+  cout << "\n[?] Pilih nomor : "; cin >> opsi;
   cin.ignore(numeric_limits<streamsize>::max(), '\n');
   updateMinuman = readDaftar(database, opsi);
 
@@ -154,6 +160,39 @@ void updateDaftar(fstream &database) {
 
   writeDaftar(database, opsi, updateMinuman);
 }
+
+void deleteDaftar(fstream &database) {
+  int nomor, size, offset = 0;
+  minuman blankMinuman, tempMinuman;
+  fstream dataSementara;
+
+  cout << "\n[?] Hapus nomor : "; cin >> nomor;
+  writeDaftar(database, nomor, blankMinuman);
+  dataSementara.open("temp.dat", ios::trunc | ios::out | ios::in | ios::binary);
+
+  for(int i = 1; i <= size; i++) {
+    tempMinuman = readDaftar(database, i);
+    if(strlen(tempMinuman.nama) != 0) {
+      writeDaftar(database, i - offset, tempMinuman);
+    } else {
+      offset++;
+      cout << "[!] Terhapus" << endl;
+    }
+  }
+
+  size = getDaftar(dataSementara);
+  database.open("database.bin", ios::trunc | ios::out | ios::in | ios::binary);
+  database.close();
+  database.open("database.bin", ios:: out | ios::in | ios::binary);
+  database.close();
+
+  for(int i = 1; i <= size; i++) {
+    tempMinuman = readDaftar(dataSementara, i);
+    writeDaftar(dataSementara, i, tempMinuman);
+  }
+
+}
+
 
 enum opsi{CREATE = 1, READ, UPDATE, DELETE, FINISH = 0};
 
@@ -180,6 +219,11 @@ int main() {
         tampilkanDaftar(database);
         break;
       case DELETE:
+        daftar("Delete daftar");
+        tampilkanDaftar(database);
+        deleteDaftar(database);
+        daftar("Delete daftar");
+        tampilkanDaftar(database);
       default:
         break;
     }
