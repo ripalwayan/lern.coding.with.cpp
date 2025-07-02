@@ -6,10 +6,8 @@
 using namespace std;
 
 /*
-  ada bug di hapus data kalau mau perbaiki silahkan, hari 21 ini program ngak gue lanjutin sampai gue bener2 pahama tentang apa yang gue tulis :)
+  ada bug di hapus data kalau mau perbaiki silahkan, hari 21; ini program ngak gue lanjutin sampai gue bener2 pahama tentang apa yang gue tulis :)
 */
-
-
 
 struct minuman{
   char nama[50];
