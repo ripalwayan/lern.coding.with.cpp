@@ -1,9 +1,14 @@
 #include <iostream>
-#define APA(X) (X+X)
+#include <string>
+#include <cstring>
 
 using namespace std;
 
 int main() {
-  cout << APA(5);
+  string teks = "hello world";
+  const char* c_style = teks.c_str();
+
+  cout << "teks : " << teks << endl;
+  cout << "teks dengan c_str : " << c_style << endl;
   return 0;
 }
