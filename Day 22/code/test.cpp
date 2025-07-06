@@ -10,6 +10,8 @@ void menu();
 int main() {
   fstream file;
   buatfile(file);
+  int option = menu();
+
   return 0;
 }
 
@@ -66,10 +68,13 @@ void buatfile(fstream &file) {
     }
   }
 }
-void menu() {
+int menu() {
+  int choice;
   system("cls");
-  cout << "[!] Program buat file, tulis file, dan tampilkan file!\n" << endl;
-  cout << "[1] ";
+  cout << "[!] Program buat file, tulis file, tampilkan file dan hapus file!\n" << endl;
+  cout << "[1] Buat file \n[2] Tulis file \n[3] Tampilkan file \n [4] Hapus file" << endl;
+  cout << " >> "; cin >> choice;
+  return choice;
 }
 void tulisfile(fstream &file, string input) {
   file.write(reinterpret_cast<char*>(&input), )

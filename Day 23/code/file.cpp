@@ -5,6 +5,7 @@
 using namespace std;
 
 int main() {
+  cout << a
   string teks = "hello world";
   const char* c_style = teks.c_str();
 

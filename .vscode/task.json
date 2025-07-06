@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build with libcurl",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "main.cpp",
+        "-IC:/libcurl/include",
+        "-LC:/libcurl/lib",
+        "-lcurl",
+        "-o",
+        "curl_example.exe"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
